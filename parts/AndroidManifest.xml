@@ -133,5 +133,9 @@
             </intent-filter>
         </service>
         -->
+        <service
+            android:name=".popupcamera.PopupCameraService"
+            android:permission="PopupCameraService">
+        </service>
     </application>
 </manifest>
