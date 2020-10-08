@@ -27,7 +27,6 @@ import android.content.pm.PackageManager;
 import org.lineageos.settings.doze.DozeUtils;
 import org.lineageos.settings.dirac.DiracUtils;
 import org.lineageos.settings.fod.FodUtils;
-import org.lineageos.settings.popupcamera.PopupCameraUtils;
 import vendor.xiaomi.hardware.touchfeature.V1_0.ITouchFeature;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
@@ -66,6 +65,5 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         DiracUtils.initialize(context);
         DozeUtils.checkDozeService(context);
         FodUtils.startService(context);
-        PopupCameraUtils.startService(context);
     }
 }
