@@ -78,10 +78,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_kona \
-    lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_kona \
-    vendor.oneplus.fingerprint.extension@1.0 \
-    vendor.oneplus.hardware.display@1.0
+    lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_kona
 
 # HotwordEnrollement app permissions
 PRODUCT_COPY_FILES += \
@@ -142,7 +139,7 @@ PRODUCT_PACKAGES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-    device/oneplus/common
+    hardware/xiaomi
 
 # Telephony
 PRODUCT_PACKAGES += \

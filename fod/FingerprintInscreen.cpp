@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The LineageOS Project
+ * Copyright (C) 2019-2020 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,21 +18,21 @@
 
 #include "FingerprintInscreen.h"
 #include <android-base/logging.h>
-#include <hidl/HidlTransportSupport.h>
+#include <hardware_legacy/power.h>
+#include <cmath>
 #include <fstream>
 
-#define FINGERPRINT_ERROR_CANCELED 5
-#define FINGERPRINT_ACQUIRED_VENDOR 6
-#define FINGERPRINT_ERROR_VENDOR 8
+#define COMMAND_NIT 10
+#define PARAM_NIT_FOD 1
+#define PARAM_NIT_NONE 0
 
-#define OP_ENABLE_FP_LONGPRESS 3
-#define OP_DISABLE_FP_LONGPRESS 4
-#define OP_RESUME_FP_ENROLL 8
-#define OP_FINISH_FP_ENROLL 10
+#define TOUCH_FOD_ENABLE 10
 
-#define OP_DISPLAY_AOD_MODE 8
-#define OP_DISPLAY_NOTIFY_PRESS 9
-#define OP_DISPLAY_SET_DIM 10
+#define BRIGHTNESS_PATH "/sys/class/backlight/panel0-backlight/brightness_clone"
+
+#define DISPPARAM_PATH "/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/disp_param"
+#define DISPPARAM_HBM_FOD_ON "0x20000"
+#define DISPPARAM_HBM_FOD_OFF "0xE0000"
 
 namespace vendor {
 namespace lineage {
@@ -61,124 +61,77 @@ static T get(const std::string& path, const T& def) {
 }
 
 FingerprintInscreen::FingerprintInscreen() {
-    this->mFodCircleVisible = false;
-    this->mIsEnrolling = false;
-    this->mVendorFpService = IVendorFingerprintExtensions::getService();
-    this->mVendorDisplayService = IOneplusDisplay::getService();
+    xiaomiDisplayFeatureService = IDisplayFeature::getService();
+    touchFeatureService = ITouchFeature::getService();
+    xiaomiFingerprintService = IXiaomiFingerprint::getService();
 }
 
 Return<void> FingerprintInscreen::onStartEnroll() {
-    this->mIsEnrolling = true;
-    this->mVendorFpService->updateStatus(OP_DISABLE_FP_LONGPRESS);
-    this->mVendorFpService->updateStatus(OP_RESUME_FP_ENROLL);
-
     return Void();
 }
 
 Return<void> FingerprintInscreen::onFinishEnroll() {
-    this->mIsEnrolling = false;
-    this->mVendorFpService->updateStatus(OP_FINISH_FP_ENROLL);
-
     return Void();
 }
 
 Return<void> FingerprintInscreen::onPress() {
-    if (mIsEnrolling) {
-        this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 1);
-    }
-    this->mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 1);
-
+    acquire_wake_lock(PARTIAL_WAKE_LOCK, LOG_TAG);
+    set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_ON);
+    xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_FOD);
     return Void();
 }
 
 Return<void> FingerprintInscreen::onRelease() {
-    this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 0);
-    this->mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 0);
-
+    set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_OFF);
+    xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
+    release_wake_lock(LOG_TAG);
     return Void();
 }
 
 Return<void> FingerprintInscreen::onShowFODView() {
-    this->mFodCircleVisible = true;
-    this->mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 0);
-    this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 0);
-    this->mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 0);
-
+    touchFeatureService->setTouchMode(TOUCH_FOD_ENABLE, 1);
+    xiaomiDisplayFeatureService->setFeature(0, 17, 1, 1);
     return Void();
 }
 
 Return<void> FingerprintInscreen::onHideFODView() {
-    this->mFodCircleVisible = false;
-    this->mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 0);
-    this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 0);
-    this->mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 0);
-
+    touchFeatureService->resetTouchMode(TOUCH_FOD_ENABLE);
+    xiaomiDisplayFeatureService->setFeature(0, 17, 0, 1);
     return Void();
 }
 
 Return<bool> FingerprintInscreen::handleAcquired(int32_t acquiredInfo, int32_t vendorCode) {
-    std::lock_guard<std::mutex> _lock(mCallbackLock);
-    if (mCallback == nullptr) {
-        return false;
-    }
-
-    if (acquiredInfo == FINGERPRINT_ACQUIRED_VENDOR) {
-        if (mFodCircleVisible && vendorCode == 0) {
-            Return<void> ret = mCallback->onFingerDown();
-            if (!ret.isOk()) {
-                LOG(ERROR) << "FingerDown() error: " << ret.description();
-            }
-            return true;
-        }
-
-        if (mFodCircleVisible && vendorCode == 1) {
-            Return<void> ret = mCallback->onFingerUp();
-            if (!ret.isOk()) {
-                LOG(ERROR) << "FingerUp() error: " << ret.description();
-            }
-            return true;
-        }
-    }
-
+    LOG(ERROR) << "acquiredInfo: " << acquiredInfo << ", vendorCode: " << vendorCode;
     return false;
 }
 
 Return<bool> FingerprintInscreen::handleError(int32_t error, int32_t vendorCode) {
-    switch (error) {
-        case FINGERPRINT_ERROR_CANCELED:
-            if (vendorCode == 0) {
-                this->mIsEnrolling = false;
-            }
-            return false;
-        case FINGERPRINT_ERROR_VENDOR:
-            // Ignore vendorCode 6
-            return vendorCode == 6;
-        default:
-            return false;
-    }
+    LOG(ERROR) << "error: " << error << ", vendorCode: " << vendorCode;
+    return false;
 }
 
-Return<void> FingerprintInscreen::setLongPressEnabled(bool enabled) {
-    this->mVendorFpService->updateStatus(
-            enabled ? OP_ENABLE_FP_LONGPRESS : OP_DISABLE_FP_LONGPRESS);
-
+Return<void> FingerprintInscreen::setLongPressEnabled(bool) {
     return Void();
 }
 
 Return<int32_t> FingerprintInscreen::getDimAmount(int32_t) {
-    return 0;
+    float alpha;
+    int realBrightness = get(BRIGHTNESS_PATH, 0);
+
+    if (realBrightness > 500) {
+        alpha = 1.0 - pow(realBrightness / 2047.0 * 430.0 / 600.0, 0.455);
+    } else {
+        alpha = 1.0 - pow(realBrightness / 1680.0, 0.455);
+    }
+
+    return 255 * alpha;
 }
 
 Return<bool> FingerprintInscreen::shouldBoostBrightness() {
     return false;
 }
 
-Return<void> FingerprintInscreen::setCallback(const sp<IFingerprintInscreenCallback>& callback) {
-    {
-        std::lock_guard<std::mutex> _lock(mCallbackLock);
-        mCallback = callback;
-    }
-
+Return<void> FingerprintInscreen::setCallback(const sp<IFingerprintInscreenCallback>& /* callback */) {
     return Void();
 }
 
