@@ -168,11 +168,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     lineage.touch@1.0-service.xiaomi_kona
 
-# tri-state-key
-PRODUCT_PACKAGES += \
-    KeyHandler \
-    tri-state-key_daemon
-
 # Trust HAL
 PRODUCT_PACKAGES += \
     lineage.trust@1.0-service
