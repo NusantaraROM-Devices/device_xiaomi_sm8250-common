@@ -21,7 +21,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product, vendor/oneplus/sm8250-common/sm8250-common-vendor.mk)
+$(call inherit-product, vendor/xiaomi/sm8250-common/sm8250-common-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
@@ -117,7 +117,7 @@ PRODUCT_PACKAGES += \
 
 # Doze
 PRODUCT_PACKAGES += \
-    OnePlusDoze
+    XiaomiDoze
 
 # fastbootd
 PRODUCT_PACKAGES += \
@@ -125,8 +125,8 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.oneplus_kona \
-    lineage.biometrics.fingerprint.inscreen@1.0-service.oneplus_kona \
+    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_kona \
+    lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_kona \
     vendor.oneplus.fingerprint.extension@1.0 \
     vendor.oneplus.hardware.display@1.0
 
@@ -141,11 +141,11 @@ PRODUCT_COPY_FILES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.oneplus_kona
+    android.hardware.light@2.0-service.xiaomi_kona
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    lineage.livedisplay@2.0-service.oneplus_kona
+    lineage.livedisplay@2.0-service.xiaomi_kona
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -172,11 +172,11 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.2-service.oneplus_kona
+    android.hardware.power@1.2-service.xiaomi_kona
 
 # PowerShare
 PRODUCT_PACKAGES += \
-    lineage.powershare@1.0-service.oneplus_kona
+    lineage.powershare@1.0-service.xiaomi_kona
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
@@ -209,7 +209,7 @@ PRODUCT_COPY_FILES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    lineage.touch@1.0-service.oneplus_kona
+    lineage.touch@1.0-service.xiaomi_kona
 
 # tri-state-key
 PRODUCT_PACKAGES += \

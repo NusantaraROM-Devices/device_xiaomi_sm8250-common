@@ -5,5 +5,5 @@ import (
 )
 
 func init() {
-    android.RegisterModuleType("oneplus_kona_fod_hal_binary", fodHalBinaryFactory)
+    android.RegisterModuleType("xiaomi_kona_fod_hal_binary", fodHalBinaryFactory)
 }
