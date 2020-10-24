@@ -1,4 +1,8 @@
-# All unpinned blobs below are extracted from OnePlus8ProOxygen_15.E.21_OTA_021_all_2008080100_c953
+# All unpinned blobs below are extracted from cmi-user 10 QKQ1.191117.002 V12.0.5.0.QJAMIXM release-keys
+
+# Alarm
+-product/app/PowerOffAlarm/PowerOffAlarm.apk
+product/framework/vendor.qti.hardware.alarm-V1.0-java.jar
 
 # ANT+
 -lib/libantradio.so
@@ -6,13 +10,88 @@
 product/lib/com.qualcomm.qti.ant@1.0.so
 product/lib64/com.qualcomm.qti.ant@1.0.so
 
-# Bluetooth (aptX) - from crosshatch - QP1A.190711.020
-product/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
-product/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
+# Audio
+vendor/lib64/soundfx/libvolumelistener.so:product/vendor_overlay/29/lib64/soundfx/libvolumelistener.so|5e47ee679a500e3452160e390a42f210b415a039
+vendor/lib/soundfx/libvolumelistener.so:product/vendor_overlay/29/lib/soundfx/libvolumelistener.so|74bd1983958010a74b66d46018b033498202bf19
+
+# Audiosphere
+etc/permissions/audiosphere.xml
+framework/audiosphere.jar
+
+# CNE
+etc/cne/Nexus/ATT/ATT_profiles.xml
+etc/cne/Nexus/ROW/ROW_profiles.xml
+etc/cne/Nexus/VZW/VZW_profiles.xml
+product/etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml
+product/etc/permissions/vendor.qti.hardware.data.connection-V1.1-java.xml
+product/framework/com.quicinc.cne.api-V1.1-java.jar
+product/framework/com.quicinc.cne.constants-V1.0-java.jar
+product/framework/com.quicinc.cne.constants-V2.0-java.jar
+product/framework/com.quicinc.cne.constants-V2.1-java.jar
+product/framework/vendor.qti.data.factory-V1.0-java.jar
+product/framework/vendor.qti.data.factory-V2.0-java.jar
+product/framework/vendor.qti.data.factory-V2.1-java.jar
+product/framework/vendor.qti.data.slm-V1.0-java.jar
+product/framework/vendor.qti.hardware.data.cne.internal.api-V1.0-java.jar
+product/framework/vendor.qti.hardware.data.cne.internal.constants-V1.0-java.jar
+product/framework/vendor.qti.hardware.data.connection-V1.0-java.jar
+product/framework/vendor.qti.hardware.data.connection-V1.1-java.jar
+product/framework/vendor.qti.hardware.data.dynamicdds-V1.0-java.jar
+product/framework/vendor.qti.hardware.data.iwlan-V1.0-java.jar
+product/framework/vendor.qti.hardware.data.qmi-V1.0-java.jar
+product/framework/vendor.qti.hardware.factory-V1.0-java.jar
+product/framework/vendor.qti.hardware.factory-V1.1-java.jar
+product/lib/com.quicinc.cne.api@1.0.so
+product/lib/com.quicinc.cne.api@1.1.so
+product/lib/com.quicinc.cne.constants@1.0.so
+product/lib/com.quicinc.cne.constants@2.0.so
+product/lib/com.quicinc.cne.constants@2.1.so
+product/lib/vendor.qti.data.factory@1.0.so
+product/lib/vendor.qti.data.factory@2.0.so
+product/lib/vendor.qti.data.factory@2.1.so
+product/lib/vendor.qti.data.slm@1.0.so
+product/lib/vendor.qti.hardware.data.cne.internal.api@1.0.so
+product/lib/vendor.qti.hardware.data.cne.internal.constants@1.0.so
+product/lib/vendor.qti.hardware.data.cne.internal.server@1.0.so
+product/lib/vendor.qti.hardware.data.connection@1.0.so
+product/lib/vendor.qti.hardware.data.connection@1.1.so
+product/lib/vendor.qti.hardware.data.dynamicdds@1.0.so
+product/lib/vendor.qti.hardware.data.iwlan@1.0.so
+product/lib/vendor.qti.hardware.data.qmi@1.0.so
+product/lib/vendor.qti.hardware.factory@1.0.so
+product/lib/vendor.qti.hardware.factory@1.1.so
+product/lib64/com.quicinc.cne.api@1.0.so
+product/lib64/com.quicinc.cne.api@1.1.so
+product/lib64/com.quicinc.cne.constants@1.0.so
+product/lib64/com.quicinc.cne.constants@2.0.so
+product/lib64/com.quicinc.cne.constants@2.1.so
+product/lib64/vendor.qti.data.factory@1.0.so
+product/lib64/vendor.qti.data.factory@2.0.so
+product/lib64/vendor.qti.data.factory@2.1.so
+product/lib64/vendor.qti.data.slm@1.0.so
+product/lib64/vendor.qti.hardware.data.cne.internal.api@1.0.so
+product/lib64/vendor.qti.hardware.data.cne.internal.constants@1.0.so
+product/lib64/vendor.qti.hardware.data.cne.internal.server@1.0.so
+product/lib64/vendor.qti.hardware.data.connection@1.0.so
+product/lib64/vendor.qti.hardware.data.connection@1.1.so
+product/lib64/vendor.qti.hardware.data.dynamicdds@1.0.so
+product/lib64/vendor.qti.hardware.data.iwlan@1.0.so
+product/lib64/vendor.qti.hardware.data.qmi@1.0.so
+product/lib64/vendor.qti.hardware.factory@1.0.so
+product/lib64/vendor.qti.hardware.factory@1.1.so
 
 # Display
+product/lib/vendor.display.color@1.0.so
+product/lib/vendor.display.color@1.1.so
+product/lib/vendor.display.color@1.2.so
+product/lib/vendor.display.color@1.3.so
+product/lib/vendor.display.postproc@1.0.so
 product/lib64/libsdm-disp-apis.qti.so
 product/lib64/vendor.display.color@1.0.so
+product/lib64/vendor.display.color@1.1.so
+product/lib64/vendor.display.color@1.2.so
+product/lib64/vendor.display.color@1.3.so
+product/lib64/vendor.display.postproc@1.0.so
 
 # DPM
 framework/tcmclient.jar
@@ -33,13 +112,61 @@ product/lib64/libdpmctmgr.so
 product/lib64/libdpmfdmgr.so
 product/lib64/libdpmframework.so
 product/lib64/libdpmtcm.so
+-product/priv-app/dpmserviceapp/dpmserviceapp.apk
+
+# DSP - SCVE
+product/lib/vendor.qti.hardware.scve.objecttracker@1.0-adapter-helper.so
+product/lib/vendor.qti.hardware.scve.objecttracker@1.0.so
+product/lib/vendor.qti.hardware.scve.panorama@1.0-adapter-helper.so
+product/lib/vendor.qti.hardware.scve.panorama@1.0.so
+product/lib64/vendor.qti.hardware.scve.objecttracker@1.0-adapter-helper.so
+product/lib64/vendor.qti.hardware.scve.objecttracker@1.0.so
+product/lib64/vendor.qti.hardware.scve.panorama@1.0-adapter-helper.so
+product/lib64/vendor.qti.hardware.scve.panorama@1.0.so
 
 # HotwordEnrollment
--priv-app/HotwordEnrollmentOKGoogleHEXAGON/HotwordEnrollmentOKGoogleHEXAGON.apk
--priv-app/HotwordEnrollmentXGoogleHEXAGON/HotwordEnrollmentXGoogleHEXAGON.apk
+-product/priv-app/HotwordEnrollmentOKGoogleHEXAGON/HotwordEnrollmentOKGoogleHEXAGON.apk
+-product/priv-app/HotwordEnrollmentXGoogleHEXAGON/HotwordEnrollmentXGoogleHEXAGON.apk
 
 # IMS
--product/priv-app/ims/ims.apk|df0b116bec248f6d7402abe3c10379fe7b62759f
+-product/priv-app/ims/ims.apk
+etc/permissions/com.qualcomm.qti.imscmservice.xml
+-product/app/uceShimService/uceShimService.apk
+product/etc/permissions/com.qualcomm.qti.imscmservice-V2.0-java.xml
+product/etc/permissions/com.qualcomm.qti.imscmservice-V2.1-java.xml
+product/etc/permissions/com.qualcomm.qti.imscmservice-V2.2-java.xml
+product/framework/com.qualcomm.qti.imscmservice-V2.0-java.jar
+product/framework/com.qualcomm.qti.imscmservice-V2.1-java.jar
+product/framework/com.qualcomm.qti.imscmservice-V2.2-java.jar
+product/framework/com.qualcomm.qti.uceservice-V2.0-java.jar
+product/framework/com.qualcomm.qti.uceservice-V2.1-java.jar
+product/framework/vendor.qti.ims.callinfo-V1.0-java.jar
+product/framework/vendor.qti.ims.rcsconfig-V1.0-java.jar
+product/framework/vendor.qti.ims.rcsconfig-V1.1-java.jar
+product/lib/com.qualcomm.qti.imscmservice@1.0.so
+product/lib/com.qualcomm.qti.imscmservice@2.0.so
+product/lib/com.qualcomm.qti.imscmservice@2.1.so
+product/lib/com.qualcomm.qti.imscmservice@2.2.so
+product/lib/com.qualcomm.qti.uceservice@2.0.so
+product/lib/com.qualcomm.qti.uceservice@2.1.so
+product/lib/lib-imsvideocodec.so
+product/lib/lib-imsvt.so
+product/lib/lib-imsvtextutils.so
+product/lib/lib-imsvtutils.so
+product/lib/libdiag_system.so
+product/lib/libimscamera_jni.so
+product/lib/libimsmedia_jni.so
+product/lib/vendor.qti.ims.callinfo@1.0.so
+product/lib/vendor.qti.ims.rcsconfig@1.0.so
+product/lib/vendor.qti.ims.rcsconfig@1.1.so
+product/lib/vendor.qti.imsrtpservice@2.0.so
+product/lib/vendor.qti.imsrtpservice@2.1.so
+product/lib64/com.qualcomm.qti.imscmservice@1.0.so
+product/lib64/com.qualcomm.qti.imscmservice@2.0.so
+product/lib64/com.qualcomm.qti.imscmservice@2.1.so
+product/lib64/com.qualcomm.qti.imscmservice@2.2.so
+product/lib64/com.qualcomm.qti.uceservice@2.0.so
+product/lib64/com.qualcomm.qti.uceservice@2.1.so
 product/lib64/libdiag_system.so
 product/lib64/libimscamera_jni.so
 product/lib64/libimsmedia_jni.so
@@ -47,7 +174,41 @@ product/lib64/lib-imsvideocodec.so
 product/lib64/lib-imsvtextutils.so
 product/lib64/lib-imsvt.so
 product/lib64/lib-imsvtutils.so
+product/lib64/vendor.qti.ims.callinfo@1.0.so
+product/lib64/vendor.qti.ims.rcsconfig@1.0.so
+product/lib64/vendor.qti.ims.rcsconfig@1.1.so
 product/lib64/vendor.qti.imsrtpservice@2.0.so
+product/lib64/vendor.qti.imsrtpservice@2.1.so
+
+# GPS
+etc/permissions/com.qti.location.sdk.xml
+etc/permissions/com.qualcomm.location.xml
+etc/permissions/izat.xt.srv.xml
+etc/permissions/privapp-permissions-com.qualcomm.location.xml
+framework/com.qti.location.sdk.jar
+framework/izat.xt.srv.jar
+lib64/liblocationservice_jni.so
+lib64/libxt_native.so
+product/lib/vendor.qti.gnss@1.0.so
+product/lib/vendor.qti.gnss@1.1.so
+product/lib/vendor.qti.gnss@1.2.so
+product/lib/vendor.qti.gnss@2.0.so
+product/lib/vendor.qti.gnss@2.1.so
+product/lib/vendor.qti.gnss@3.0.so
+product/lib64/vendor.qti.gnss@1.0.so
+product/lib64/vendor.qti.gnss@1.1.so
+product/lib64/vendor.qti.gnss@1.2.so
+product/lib64/vendor.qti.gnss@2.0.so
+product/lib64/vendor.qti.gnss@2.1.so
+product/lib64/vendor.qti.gnss@3.0.so
+
+# Latency
+product/framework/vendor.qti.hardware.data.latency-V1.0-java.jar
+product/framework/vendor.qti.latency-V2.0-java.jar
+product/lib/vendor.qti.hardware.data.latency@1.0.so
+product/lib/vendor.qti.latency@2.0.so
+product/lib64/vendor.qti.hardware.data.latency@1.0.so
+product/lib64/vendor.qti.latency@2.0.so
 
 # Media
 lib/libFileMux.so
@@ -55,24 +216,39 @@ lib/libmmosal.so
 lib/libmmparser_lite.so
 lib/libOmxMux.so
 lib64/libmmosal.so
+lib64/libOmxMux.so
+product/lib/vendor.qti.hardware.vpp@1.1.so
+product/lib64/vendor.qti.hardware.vpp@1.1.so
 
-# NFC
--app/NxpNfcNci/NxpNfcNci.apk|1d3f75a7e86d3bf2509606bcd92329d1370f7c61
-etc/nfcee_access.xml
-etc/permissions/com.nxp.nfc.xml
-framework/com.nxp.nfc.jar
-lib64/libnxpnfc_nci_jni.so
-lib64/libnxpnfc-nci.so
+# Perf
+etc/perf/wlc_model.tflite
+lib/libqti-perfd-client_system.so
+lib/libqti-util_system.so
+lib/libqti_performance.so
+lib64/libqti-perfd-client_system.so
+lib64/libqti-util_system.so
+lib64/libqti_performance.so
+product/lib/vendor.qti.hardware.perf@2.0.so
+product/lib64/vendor.qti.hardware.perf@2.0.so
+
+# Soter
+product/framework/vendor.qti.hardware.soter-V1.0-java.jar
+product/lib64/vendor.qti.hardware.soter@1.0.so
 
 # Telephony
 etc/permissions/privapp-permissions-qti.xml
 etc/permissions/qti_libpermissions.xml
 etc/permissions/qti_permissions.xml
 etc/sysconfig/qti_whitelist.xml
--framework/qcnvitems.jar
+-product/app/atfwd/atfwd.apk
+-product/app/datastatusnotification/datastatusnotification.apk
+-product/app/embms/embms.apk
 -product/app/QtiTelephonyService/QtiTelephonyService.apk
+product/etc/permissions/embms.xml
 product/etc/permissions/qcrilhook.xml
+product/etc/permissions/telephony_product_privapp-permissions-qti.xml
 product/etc/permissions/telephonyservice.xml
+product/framework/embmslibrary.jar
 product/framework/qcrilhook.jar
 product/framework/QtiTelephonyServicelibrary.jar
 -product/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
@@ -96,6 +272,7 @@ lib/libwfdconfigutils.so
 lib/libwfdmminterface.so
 lib/libwfdmmsink.so
 lib/libwfdmmsrc_system.so
+lib/libwfdnative.so
 lib/libwfdrtsp.so
 lib/libwfdservice.so
 lib/libwfdsinksm.so
@@ -125,3 +302,30 @@ lib64/libwfduibcsrc.so
 lib64/libwfduibcsrcinterface.so
 -priv-app/WfdService/WfdService.apk
 product/lib/vendor.qti.hardware.wifidisplaysession@1.0.so
+product/lib64/vendor.qti.hardware.wifidisplaysession@1.0.so
+
+# Xiaomi
+etc/permissions/vendor.xiaomi.hardware.misys-V1.0-java-permission.xml
+etc/permissions/vendor.xiaomi.hardware.misys-V2.0-java-permission.xml
+etc/permissions/vendor.xiaomi.hardware.misys.V3_0-permission.xml
+etc/permissions/vendor.xiaomi.hardware.mtdservice-V1.0-java-permission.xml
+etc/permissions/vendor.xiaomi.hardware.mtdservice-V1.1-java-permission.xml
+etc/permissions/vendor.xiaomi.hardware.vsimapp-V1.0-java-permission.xml
+framework/vendor.xiaomi.hardware.misys-V1.0-java.jar
+framework/vendor.xiaomi.hardware.misys-V2.0-java.jar
+framework/vendor.xiaomi.hardware.misys.V3_0.jar
+framework/vendor.xiaomi.hardware.mtdservice-V1.0-java.jar
+framework/vendor.xiaomi.hardware.mtdservice-V1.1-java.jar
+framework/vendor.xiaomi.hardware.vsimapp-V1.0-java.jar
+lib/vendor.xiaomi.hardware.citsensorservice@1.0.so
+lib/vendor.xiaomi.hardware.citsensorservice@1.1.so
+lib/vendor.xiaomi.hardware.misys@1.0.so
+lib/vendor.xiaomi.hardware.misys@2.0.so
+lib/vendor.xiaomi.hardware.misys@3.0.so
+lib/vendor.xiaomi.hardware.vibratorfeature@1.0.so
+lib64/vendor.xiaomi.hardware.citsensorservice@1.0.so
+lib64/vendor.xiaomi.hardware.citsensorservice@1.1.so
+lib64/vendor.xiaomi.hardware.misys@1.0.so
+lib64/vendor.xiaomi.hardware.misys@2.0.so
+lib64/vendor.xiaomi.hardware.misys@3.0.so
+lib64/vendor.xiaomi.hardware.vibratorfeature@1.0.so
