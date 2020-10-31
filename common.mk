@@ -72,10 +72,6 @@ PRODUCT_PACKAGES += \
     libvulkan \
     vendor.display.config@1.0
 
-# Doze
-PRODUCT_PACKAGES += \
-    XiaomiDoze
-
 # fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
@@ -122,6 +118,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/libnfc-nci.conf:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/libnfc-nci.conf
+
+# Parts
+PRODUCT_PACKAGES += \
+    XiaomiParts
 
 # Power
 PRODUCT_PACKAGES += \

@@ -66,20 +66,20 @@ public class DozeService extends Service {
 
     private void onDisplayOn() {
         if (DEBUG) Log.d(TAG, "Display on");
-        if (Utils.isPickUpEnabled(this)) {
+        if (DozeUtils.isPickUpEnabled(this)) {
             mPickupSensor.disable();
         }
-        if (Utils.isPocketEnabled(this)) {
+        if (DozeUtils.isPocketEnabled(this)) {
             mPocketSensor.disable();
         }
     }
 
     private void onDisplayOff() {
         if (DEBUG) Log.d(TAG, "Display off");
-        if (Utils.isPickUpEnabled(this)) {
+        if (DozeUtils.isPickUpEnabled(this)) {
             mPickupSensor.enable();
         }
-        if (Utils.isPocketEnabled(this)) {
+        if (DozeUtils.isPocketEnabled(this)) {
             mPocketSensor.enable();
         }
     }
