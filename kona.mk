@@ -160,6 +160,7 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-service \
     libdisplayconfig.qti \
     libdisplayconfig.qti.vendor \
+    hwcomposer.kona \
     gralloc.kona \
     libqdMetaData \
     libsdmcore \
