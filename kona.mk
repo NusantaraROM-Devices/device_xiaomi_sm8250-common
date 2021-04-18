@@ -163,8 +163,6 @@ PRODUCT_PACKAGES += \
     hwcomposer.kona \
     gralloc.kona \
     libqdMetaData \
-    libsdmcore \
-    libsdmutils \
     libtinyxml \
     libvulkan \
     memtrack.kona \
