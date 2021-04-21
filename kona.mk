@@ -258,8 +258,8 @@ PRODUCT_PACKAGES += \
     liboffloadhal
 
 # Lights
-PRODUCT_PACKAGES += \
-    lights.kona
+#PRODUCT_PACKAGES += \
+#    lights.kona
 
 # LiveDisplay native
 PRODUCT_PACKAGES += \
