@@ -6,7 +6,6 @@
 
 PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
-TARGET_NO_FOD ?= true
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
@@ -216,7 +215,6 @@ endif
 
 PRODUCT_PACKAGES += \
     vendor.xiaomi.hardware.fingerprintextension@1.0.vendor \
-    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_sm8250 \
     vendor.xiaomi.hardware.touchfeature@1.0.vendor
 
 # Health
