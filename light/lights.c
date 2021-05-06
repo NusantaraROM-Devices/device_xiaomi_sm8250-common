@@ -230,10 +230,10 @@ set_speaker_light_locked(struct light_device_t* dev,
     }
 
     colorRGB = state->color;
-    white = ((red + green + blue) / 3) & 0xFF;
     red = (colorRGB >> 16) & 0xFF;
     green = (colorRGB >> 8) & 0xFF;
     blue = colorRGB & 0xFF;
+    white = ((red + green + blue) / 3) & 0xFF;
 
     onMS = state->flashOnMS;
     offMS = state->flashOffMS;
