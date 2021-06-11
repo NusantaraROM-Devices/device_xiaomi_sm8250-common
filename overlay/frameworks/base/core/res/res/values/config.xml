@@ -331,4 +331,5 @@
 
     <!-- Screen off FOD -->
     <bool name="config_supportScreenOffFod">true</bool>
+    <bool name="config_supportsScreenOffInDisplayFingerprint">true</bool>
 </resources>
