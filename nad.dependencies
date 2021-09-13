@@ -1,9 +1,9 @@
 [
   {
     "remote"       : "github",
-    "repository"   : "NusantaraROM-Devices/kernel_xiaomi_sm8250",
+    "repository"   : "ZenkaBestia/kernel_xiaomi_sm8250",
     "target_path"  : "kernel/xiaomi/sm8250",
     "clone-depth"  : "1",
-    "branch"       : "11-los"
+    "branch"       : "QK-r3.3"
   }
 ]
