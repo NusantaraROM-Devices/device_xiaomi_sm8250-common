@@ -1,59 +1,39 @@
 /*
- * Copyright (C) 2017 The Android Open Source Project
+ * Copyright (C) 2019-2021 The LineageOS Project
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * SPDX-License-Identifier: Apache-2.0
  */
 
-#define LOG_TAG "android.hardware.biometrics.fingerprint@2.1-service.xiaomi_kona"
+#define LOG_TAG "android.hardware.biometrics.fingerprint@2.3-service.xiaomi_kona"
 
-#include <android/log.h>
-#include <hidl/HidlSupport.h>
+#include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>
-#include <android/hardware/biometrics/fingerprint/2.1/IBiometricsFingerprint.h>
-#include <android/hardware/biometrics/fingerprint/2.1/types.h>
-#include <vendor/xiaomi/hardware/fingerprintextension/1.0/IXiaomiFingerprint.h>
 #include "BiometricsFingerprint.h"
 
-using android::hardware::biometrics::fingerprint::V2_1::IBiometricsFingerprint;
-using android::hardware::biometrics::fingerprint::V2_1::implementation::BiometricsFingerprint;
 using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
-using android::sp;
-using vendor::xiaomi::hardware::fingerprintextension::V1_0::IXiaomiFingerprint;
+
+using android::hardware::biometrics::fingerprint::V2_3::IBiometricsFingerprint;
+using android::hardware::biometrics::fingerprint::V2_3::implementation::BiometricsFingerprint;
+
+using android::OK;
+using android::status_t;
 
 int main() {
-    android::sp<IBiometricsFingerprint> bio = BiometricsFingerprint::getInstance();
-    android::sp<IXiaomiFingerprint> xfe = BiometricsFingerprint::getXiaomiInstance();
+    android::sp<IBiometricsFingerprint> service = new BiometricsFingerprint();
 
-    configureRpcThreadpool(1, true /*callerWillJoin*/);
+    configureRpcThreadpool(1, true);
 
-    if (bio != nullptr) {
-        if (::android::OK != bio->registerAsService()) {
-            return 1;
-        }
-    } else {
-        ALOGE("Can't create instance of BiometricsFingerprint, nullptr");
+    status_t status = service->registerAsService();
+    if (status != OK) {
+        LOG(ERROR) << "Cannot register Biometrics 2.3 HAL service.";
+        return 1;
     }
 
-    if (xfe != nullptr) {
-        if (::android::OK != xfe->registerAsService()) {
-            return 1;
-        }
-    } else {
-        ALOGE("Can't create instance of XiaomiFingerprint, nullptr");
-    }
+    LOG(INFO) << "Biometrics 2.3 HAL service ready.";
 
     joinRpcThreadpool();
 
-    return 0; // should never get here
+    LOG(ERROR) << "Biometrics 2.3 HAL service failed to join thread pool.";
+    return 1;
 }
