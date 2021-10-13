@@ -177,6 +177,10 @@ on boot
 
     write /sys/block/sda/queue/wbt_lat_usec 75000
 
+    # DT2W
+    chown system system /sys/touchpanel/double_tap
+    chmod 0660 /sys/touchpanel/double_tap
+
     # Touch Sampling Rate
     chown system system /sys/devices/virtual/touch/touch_dev/bump_sample_rate
     chmod 0664 /sys/devices/virtual/touch/touch_dev/bump_sample_rate
