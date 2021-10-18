@@ -336,10 +336,6 @@ PRODUCT_PACKAGES += \
     libqti-perfd-client \
     vendor.qti.hardware.perf@2.2.vendor
 
-# Performance
-PRODUCT_PACKAGES += \
-    powerctl
-
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service.xiaomi-libperfmgr
