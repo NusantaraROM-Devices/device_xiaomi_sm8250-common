@@ -4,6 +4,6 @@
     "repository"   : "NusantaraROM-Devices/kernel_xiaomi_sm8250",
     "target_path"  : "kernel/xiaomi/sm8250",
     "clone-depth"  : "1",
-    "branch"       : "11-los"
+    "branch"       : "12-los"
   }
 ]
