@@ -237,6 +237,7 @@ PRODUCT_PACKAGES += \
     libsdmcore \
     libsdmutils \
     libqdMetaData \
+    libqdMetaData.system \
     libsdmcore \
     libsdmutils \
     libtinyxml \
