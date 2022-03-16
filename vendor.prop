@@ -304,6 +304,9 @@ ro.soc.model=SM8250
 vendor.usb.diag.func.name=diag
 vendor.usb.use_ffs_mtp=0
 
+# Volume steps
+persist.vendor.audio_hal.dsp_bit_width_enforce_mode=24
+
 # WiFi
 wifi.aware.interface=wifi-aware0
 
