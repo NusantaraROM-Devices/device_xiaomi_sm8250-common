@@ -82,8 +82,4 @@
     <string name="refresh_higher">Higher (120Hz)</string>
     <string name="refresh_maximum">Maximum (144Hz)</string>    
 
-4    <!-- Dirac -->
-    <string name="dirac_tile_on">On</string>
-    <string name="dirac_tile_off">Off</string>
-
 </resources>
