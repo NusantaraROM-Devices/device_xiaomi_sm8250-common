@@ -754,8 +754,6 @@ vendor/radio/qcril_database/upgrade/7_version_update_ecc_table.sql
 vendor/radio/qcril_database/qcril.db
 
 # SECCOMP policy
-vendor/etc/seccomp_policy/mediaswcodec.policy 
-vendor/etc/seccomp_policy/mediaextractor.policy
 vendor/etc/seccomp_policy/mediacodec.policy
 
 # Secure element
