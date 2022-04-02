@@ -88,7 +88,8 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@6.0-impl:32 \
     android.hardware.audio.service \
     android.hardware.bluetooth.audio@2.1-impl \
-    android.hardware.soundtrigger@2.3-impl
+    android.hardware.soundtrigger@2.3-impl \
+    vendor.qti.hardware.audiohalext@1.0.vendor
 
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -96,7 +97,8 @@ PRODUCT_PACKAGES += \
     audio.primary.kona \
     audio.r_submix.default \
     audio.usb.default \
-    audio.usbv2.default
+    audio.usbv2.default \
+    sound_trigger.primary.kona:32
 
 PRODUCT_PACKAGES += \
     liba2dpoffload \
