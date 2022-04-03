@@ -339,6 +339,11 @@ PRODUCT_PACKAGES += \
     libipanat \
     liboffloadhal
 
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@4.0.vendor \
+    android.hardware.keymaster@4.1.vendor
+
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.lights-service.xiaomi_kona
