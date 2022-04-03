@@ -156,6 +156,9 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.bluetooth_audio@2.0.vendor \
     vendor.qti.hardware.btconfigstore@1.0.vendor
 
+# FM
+PRODUCT_PACKAGES += vendor.qti.hardware.fm@1.0
+
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac \
     persist.bluetooth.a2dp_offload.disabled=false \
@@ -188,7 +191,8 @@ PRODUCT_COPY_FILES += \
 
 include vendor/qcom/opensource/commonsys-intf/bluetooth/bt-commonsys-intf-board.mk
 $(call inherit-product, vendor/qcom/opensource/commonsys-intf/bluetooth/bt-system-opensource-product.mk)
-$(call inherit-product-if-exists, vendor/qcom/common/bt/bt-vendor.mk)
+# Get non-open-source specific aspects.
+$(call inherit-product-if-exists, vendor/qcom/common/system/bt/bt-vendor.mk)
 
 # Camera
 PRODUCT_PACKAGES += \
