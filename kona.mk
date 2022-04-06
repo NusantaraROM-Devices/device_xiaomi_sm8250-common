@@ -167,9 +167,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.btconfigstore@2.0.vendor
 
 # FM
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.fm@1.0 \
-    vendor.qti.hardware.fm@1.0.vendor
+PRODUCT_PACKAGES += vendor.qti.hardware.fm@1.0
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac \
