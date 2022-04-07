@@ -8,5 +8,11 @@
     "repository":  "vendor_xiaomi_sm8250-common-extra",
     "target_path": "vendor/xiaomi/sm8250-common-extra",
     "branch": "12"
+  },
+  {
+    "remote": "github",
+    "repository":  "ThankYouMario/proprietary_vendor_qcom_common",
+    "target_path": "vendor/qcom/common",
+    "branch": "sapphire"
   }
 ]
