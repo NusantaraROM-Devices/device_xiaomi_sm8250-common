@@ -241,3 +241,4 @@ CONFIG_IEEE80211AX := true
 
 # Inherit the proprietary files
 include vendor/xiaomi/sm8250-common/BoardConfigVendor.mk
+include vendor/xiaomi/miuicamera/BoardConfigAnx.mk

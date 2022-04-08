@@ -9,5 +9,11 @@
     "repository":  "ThankYouMario/proprietary_vendor_qcom_common",
     "target_path": "vendor/qcom/common",
     "branch": "sapphire"
+  },
+  {
+    "remote": "github",
+    "repository": "gmw-project/vendor_xiaomi_miuicamera",
+    "target_path": "vendor/xiaomi/miuicamera",
+    "branch": "12"
   }
 ]

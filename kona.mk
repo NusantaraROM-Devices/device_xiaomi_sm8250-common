@@ -185,6 +185,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Snap
 
+$(call inherit-product, vendor/xiaomi/miuicamera/config.mk)
+
 # Configstore
 PRODUCT_PACKAGES += \
     disable_configstore
