@@ -410,9 +410,6 @@ PRODUCT_PACKAGES += \
     jcos_nq_client \
     vendor.nxp.hardware.nfc@2.0-service
 
-PRODUCT_COPY_FILES += \
-     $(LOCAL_PATH)/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf
-
 # OMX
 PRODUCT_PACKAGES += \
     libOmxAacEnc \
