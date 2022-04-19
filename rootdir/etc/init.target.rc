@@ -52,6 +52,17 @@ on init
     # report max frequency to unity tasks.
     write /proc/sys/kernel/sched_lib_name "com.miHoYo.,UnityMain,libunity.so"
     write /proc/sys/kernel/sched_lib_mask_force 255
+    # quick charging
+    chown system system /sys/kernel/fast_charge/force_fast_charge
+    chown system system /sys/class/power_supply/battery/constant_charge_current_max
+    chown system system /sys/class/power_supply/battery/input_current_limited
+    chown system system /sys/class/power_supply/battery/step_charging_enabled
+    chown system system /sys/class/power_supply/battery/sw_jeita_enabled
+    chown system system /sys/class/power_supply/battery/battery_charging_enabled
+    chown system system /sys/class/power_supply/battery/subsystem/usb/pd_active
+    chown system system /sys/class/power_supply/battery/charger_temp
+    chown system system /sys/class/qcom-battery/restrict_chg
+    chown system system /sys/module/workqueue/parameters/power_efficient
 
 on early-fs
     start vold
@@ -195,6 +206,7 @@ on charger
     setprop sys.usb.controller a600000.dwc3
     setprop sys.usb.configfs 1
     start leds-sh
+    start quickcharge-sh
 
 on property:vendor.audio.cit.spkcal.copy=true
     copy /data/vendor/cit/cs35l41_cal.bin /mnt/vendor/persist/audio/cs35l41_cal.bin
@@ -281,6 +293,11 @@ service dcvs-sh /vendor/bin/init.qti.dcvs.sh
     oneshot
 
 service leds-sh /system/vendor/bin/sh /vendor/etc/init.leds.sh
+    class core
+    user root
+    oneshot
+
+service quickcharge-sh /system/vendor/bin/sh /vendor/etc/init.quickcharge.sh
     class core
     user root
     oneshot

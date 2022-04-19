@@ -450,6 +450,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.class_main.sh \
     init.leds.sh \
+    init.quickcharge.sh \
     init.mdm.sh \
     init.mi.btmac.sh \
     init.qcom.early_boot.sh \
