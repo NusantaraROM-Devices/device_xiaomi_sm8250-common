@@ -272,10 +272,6 @@ PRODUCT_PACKAGES += \
     vendor.xiaomi.hardware.fingerprintextension@1.0.vendor \
     vendor.xiaomi.hardware.touchfeature@1.0.vendor
 
-PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0 \
-    vendor.lineage.touch@1.0.vendor
-
 # Gatekeeper
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor
