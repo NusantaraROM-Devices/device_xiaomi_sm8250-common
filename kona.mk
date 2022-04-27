@@ -273,8 +273,7 @@ PRODUCT_PACKAGES += \
     vendor.xiaomi.hardware.touchfeature@1.0.vendor
 
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0 \
-    vendor.lineage.touch@1.0.vendor
+    vendor.lineage.touch@1.0-service.xiaomi
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
