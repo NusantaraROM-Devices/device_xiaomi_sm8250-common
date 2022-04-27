@@ -174,6 +174,11 @@ TARGET_BOARD_PLATFORM := kona
 # Power
 TARGET_TAP_TO_WAKE_NODE  := "/sys/touchpanel/double_tap"
 
+# Touch
+SOONG_CONFIG_NAMESPACES += XIAOMI_TOUCH
+SOONG_CONFIG_XIAOMI_TOUCH := HIGH_TOUCH_POLLING_PATH
+SOONG_CONFIG_XIAOMI_TOUCH_HIGH_TOUCH_POLLING_PATH := /devices/virtual/touch/touch_dev/bump_sample_rate
+
 # Properties
 TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
 TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
