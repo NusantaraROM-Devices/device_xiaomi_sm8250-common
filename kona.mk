@@ -401,10 +401,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf
 
-# NotchBarKiller
-PRODUCT_PACKAGES += \
-    NotchBarKiller
-
 # OMX
 PRODUCT_PACKAGES += \
     libOmxAacEnc \
