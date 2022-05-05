@@ -45,6 +45,8 @@ public class KcalSettingsFragment extends PreferenceFragment implements
     private SeekBarPreference mGreenColorSlider;
     private SeekBarPreference mBlueColorSlider;
     private SeekBarPreference mSaturationSlider;
+    private SeekBarPreference mHueSlider;
+    private SeekBarPreference mValueSlider;
     private SeekBarPreference mContrastSlider;
     private Preference mResetButton;
 
@@ -76,20 +78,28 @@ public class KcalSettingsFragment extends PreferenceFragment implements
                 KcalUtils.writeConfigToNode(KcalUtils.KCAL_ENABLE_NODE, 0, (Boolean) newValue ? 1 : 0);
                 break;
             case "red_slider":
-                KcalUtils.writeConfigToNode(KcalUtils.KCAL_RGB_NODE, 1, (Integer) newValue);
+                KcalUtils.writeConfigToNode(KcalUtils.KCAL_RED_NODE, 1, (Integer) newValue);
                 mRedColorSlider.setSummary(String.valueOf(newValue));
                 break;
             case "green_slider":
-                KcalUtils.writeConfigToNode(KcalUtils.KCAL_RGB_NODE, 2, (Integer) newValue);
+                KcalUtils.writeConfigToNode(KcalUtils.KCAL_GREEN_NODE, 2, (Integer) newValue);
                 mGreenColorSlider.setSummary(String.valueOf(newValue));
                 break;
             case "blue_slider":
-                KcalUtils.writeConfigToNode(KcalUtils.KCAL_RGB_NODE, 3, (Integer) newValue);
+                KcalUtils.writeConfigToNode(KcalUtils.KCAL_BLUE_NODE, 3, (Integer) newValue);
                 mBlueColorSlider.setSummary(String.valueOf(newValue));
                 break;
             case "saturation_slider":
                 KcalUtils.writeConfigToNode(KcalUtils.KCAL_SATURATION_NODE, 0, (Integer) newValue);
                 mSaturationSlider.setSummary(String.valueOf(newValue));
+                break;
+            case "hue_slider":
+                KcalUtils.writeConfigToNode(KcalUtils.KCAL_HUE_NODE, 0, (Integer) newValue);
+                mHueSlider.setSummary(String.valueOf(newValue));
+                break;
+            case "value_slider":
+                KcalUtils.writeConfigToNode(KcalUtils.KCAL_VALUE_NODE, 0, (Integer) newValue);
+                mValueSlider.setSummary(String.valueOf(newValue));
                 break;
             case "contrast_slider":
                 KcalUtils.writeConfigToNode(KcalUtils.KCAL_CONTRAST_NODE, 0, (Integer) newValue);
@@ -135,6 +145,14 @@ public class KcalSettingsFragment extends PreferenceFragment implements
         mSaturationSlider = (SeekBarPreference) findPreference("saturation_slider");
         configureSlider(mSaturationSlider, this);
         mSaturationSlider.setMin(224);
+
+        mHueSlider = (SeekBarPreference) findPreference("hue_slider");
+        configureSlider(mHueSlider, this);
+        mHueSlider.setMin(0);
+
+        mValueSlider = (SeekBarPreference) findPreference("value_slider");
+        configureSlider(mValueSlider, this);
+        mValueSlider.setMin(127);
 
         mContrastSlider = (SeekBarPreference) findPreference("contrast_slider");
         configureSlider(mContrastSlider, this);
