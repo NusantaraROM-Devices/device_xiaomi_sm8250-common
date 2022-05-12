@@ -94,15 +94,15 @@ vendor/lib64/libmdsprpc.so
 vendor/lib64/libsdsprpc.so
 vendor/lib64/libsysmon_cdsp_skel.so
 
-# Charger
-vendor/bin/hvdcp_opti
-vendor/bin/init.qti.chg_policy.sh
-vendor/etc/init/vendor.qti.hardware.charger_monitor@1.0-service.rc
-vendor/etc/charger_fstab.qti
+# Charger - from V12.5.8.0.RJDMIXM
+vendor/bin/hvdcp_opti|1fb0213e38b67b63368183e63e1f0279f1fc74af
+vendor/bin/init.qti.chg_policy.sh|b1301822b93f588c735fa86edc707c47340d0736
+vendor/etc/init/vendor.qti.hardware.charger_monitor@1.0-service.rc|29b23be4f604282abf715f86aec9697175a9aaad
+vendor/etc/charger_fstab.qti|8464c139d93f05e86ff9c9d31b3e8617b8d9476e
 
-# Charger (Mi Turbo Charge)
-vendor/bin/batterysecret
-vendor/etc/init/init.batterysecret.rc
+# Charger (Mi Turbo Charge) - from V12.5.8.0.RJDMIXM
+vendor/bin/batterysecret|159b9cadfad08a10b39ff03e6d7c50d99e77685e
+vendor/etc/init/init.batterysecret.rc|218076e183706abcf32b762148169cab7a1d337d
 
 # CNE
 -vendor/app/CneApp/CneApp.apk
@@ -814,15 +814,15 @@ vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc
 vendor/lib64/hw/vendor.qti.hardware.soter@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.soter@1.0.so
 
-# Thermal
-vendor/bin/mi_thermald
-vendor/etc/init/init.mi_thermald.rc
+# Thermal - from V12.5.8.0.RJDMIXM
+vendor/bin/mi_thermald|4dbe1518234eb1458f6975e57d949ebd604ae835
+vendor/etc/init/init.mi_thermald.rc|93377ddf881f27dabb2918adbe7215934eb8531f
 
-# Thermal engine
-vendor/bin/thermal-engine
-vendor/etc/init/init_thermal-engine.rc
--vendor/lib/libthermalclient.so
--vendor/lib64/libthermalclient.so
+# Thermal engine - from V12.5.8.0.RJDMIXM
+vendor/bin/thermal-engine|c2ecf6444aa828d7fdbc9d196812f2b23b0d5f5e
+vendor/etc/init/init_thermal-engine.rc|f0d14aa4734b2e8afd61a4eed73238187b268f48
+-vendor/lib/libthermalclient.so|d457d2d70aa9b0bf898e1ffa70a53284f17472cb
+-vendor/lib64/libthermalclient.so|d2ce63a5f0f9861c88217717ab5eec51b14e8571
 
 # Time services
 -vendor/app/TimeService/TimeService.apk
