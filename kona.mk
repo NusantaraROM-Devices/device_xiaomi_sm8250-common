@@ -102,7 +102,6 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth.a2dp@1.0
 
 PRODUCT_PACKAGES += \
-    audio.a2dp.default \
     audio.bluetooth.default \
     audio.primary.kona \
     audio.r_submix.default \
