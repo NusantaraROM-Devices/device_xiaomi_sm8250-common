@@ -27,7 +27,7 @@ import org.lineageos.settings.utils.FileUtils;
 
 public class HBMModeSwitch implements OnPreferenceChangeListener {
 
-    private static final String HBM = "/sys/class/drm/card0/card0-DSI-1/disp_param";
+    private static final String HBM = "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/hbm";
 
     public static String getHBM() {
         if (FileUtils.isFileWritable(HBM)) {
@@ -40,7 +40,7 @@ public class HBMModeSwitch implements OnPreferenceChangeListener {
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         Boolean enabled = (Boolean) newValue;
-        FileUtils.writeLine(getHBM(), enabled ? "0x10000" : "0xF0000");
+        FileUtils.writeLine(getHBM(), enabled ? "1" : "0");
         return true;
     }
 }
