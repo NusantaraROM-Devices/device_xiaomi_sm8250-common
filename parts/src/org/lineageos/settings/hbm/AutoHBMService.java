@@ -18,7 +18,7 @@ import androidx.preference.PreferenceManager;
 import org.lineageos.settings.utils.FileUtils;
 
 public class AutoHBMService extends Service {
-    private static final String HBM = "/sys/class/drm/card0/card0-DSI-1/disp_param";
+    private static final String HBM = "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/hbm";
 
     private static boolean mAutoHBMActive = false;
 
@@ -41,9 +41,9 @@ public class AutoHBMService extends Service {
 
     private void enableHBM(boolean enable) {
         if (enable) {
-            FileUtils.writeLine(HBM, "0x10000");
+            FileUtils.writeLine(HBM, "1");
         } else {
-            FileUtils.writeLine(HBM, "0xF0000");
+            FileUtils.writeLine(HBM, "0");
         }
     }
 
