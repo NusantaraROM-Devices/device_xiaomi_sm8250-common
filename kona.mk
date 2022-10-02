@@ -247,6 +247,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.4.vendor
 
+# Storage
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.sys.fuse.passthrough.enable=true \
+    ro.incremental.enable=yes
+
 # fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
