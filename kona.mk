@@ -531,7 +531,8 @@ WIFI_FEATURE_HOSTAPD_11AX := true
 # WiFi Display
 PRODUCT_PACKAGES += \
     libnl \
-    libwfdaac_vendor
+    libwfdaac_vendor \
+    libavservices_minijail_32
 
 PRODUCT_BOOT_JARS += \
     WfdCommon
