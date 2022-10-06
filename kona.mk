@@ -184,7 +184,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml
 
 # Dalvik
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     dalvik.vm.heapgrowthlimit=256m \
     dalvik.vm.heapmaxfree=8m \
     dalvik.vm.heapminfree=512k \
