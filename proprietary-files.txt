@@ -1,5 +1,5 @@
 # Unpinned blobs from 
-# apollo V13.0.6.0.SJDMIXM release-keys
+# apollo V13.0.10.0.SJDEUXM release-keys
 
 # ADSP
 vendor/bin/adsprpcd
